@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package example;
+
+import "govalidate/validate.proto";
+
+option go_package = "github.com/aesoper101/protoc-gen-govalidate/example;example";
+option java_multiple_files = true;
+option java_package = "com.github.aesoper101.example";
+option objc_class_prefix = "Aesoper101GoValidate";
+
+message Example2 {
+  string a = 1 [(govalidate.validate) = "required"];
+
+  Nested b = 2 [(govalidate.validate) = "required"];
+
+  message Nested {
+    string d = 1 [(govalidate.validate) = "required"];
+    int64 e = 2 [(govalidate.validate) = "required,gt=10"];
+  }
+
+//  repeated Nested c = 3 [(govalidate.validate) = "required,gt=0"];
+
+  repeated string f = 4;
+
+  EnumStatus status = 5 [(govalidate.validate) = "oneof=0 1"];
+
+  enum EnumStatus {
+    AA = 0;
+    BB = 1;
+  }
+}
+

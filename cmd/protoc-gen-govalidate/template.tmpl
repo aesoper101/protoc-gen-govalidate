@@ -1,0 +1,28 @@
+{{- /* gotype: github.com/aesoper101/protoc-gen-govalidate/cmd/protoc-gen-govalidate.ruleInfoWrapper */ -}}
+
+
+var (
+    {{range .Rules}}
+        _{{.Name}}Rule = map[string]string{
+           {{range .FieldRules}}"{{.Name}}": "{{.Value}}",
+           {{ end }}
+        }
+    {{- end }}
+)
+
+
+func init() {
+    {{- range .Rules }}
+        validator.Validator().RegisterStructValidationMapRules(_{{.Name}}Rule, {{.GoIdent.GoName}}{})
+    {{- end }}
+}
+
+{{ range .Rules }}
+  func (x *{{.GoIdent.GoName}}) Validate() error {
+    return validator.Validator().Struct(x)
+  }
+
+  func (x *{{.GoIdent.GoName}}) StructCtx(ctx context.Context) error {
+    return validator.Validator().StructCtx(ctx, x)
+  }
+{{ end }}

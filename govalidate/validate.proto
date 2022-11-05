@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package govalidate;
+
+option go_package = "github.com/aesoper101/protoc-gen-govalidate/govalidate;govalidate";
+option java_multiple_files = true;
+option java_package = "com.github.aesoper101.govalidate";
+option objc_class_prefix = "Aesoper101GoValidate";
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+  string validate = 100001;
+};
+
+//extend google.protobuf.MessageOptions {
+//  string tag = 100002;
+//}
+
