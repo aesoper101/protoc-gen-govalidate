@@ -3,10 +3,16 @@ protoc plugin to generate polyglot message validators . it uses [go-playground](
 
 
 ## Installation
+    
+```bash 
 go install github.com/aesoper101/protoc-gen-govalidate/cmd/protoc-gen-govalidate@latest
+```
 
 ## Usage
+
+```shell
 protoc --proto_path=path/to/your/proto --go_out=paths=source_relative:. --govalidate_out=paths=source_relative:. *.proto
+```
 
 ## Dependencies
 
