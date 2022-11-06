@@ -26,7 +26,7 @@ func (x *Example) Validate() error {
 	return validator.Validator().Struct(x)
 }
 
-func (x *Example) StructCtx(ctx context.Context) error {
+func (x *Example) ValidateCtx(ctx context.Context) error {
 	return validator.Validator().StructCtx(ctx, x)
 }
 
@@ -34,6 +34,6 @@ func (x *Example_Nested) Validate() error {
 	return validator.Validator().Struct(x)
 }
 
-func (x *Example_Nested) StructCtx(ctx context.Context) error {
+func (x *Example_Nested) ValidateCtx(ctx context.Context) error {
 	return validator.Validator().StructCtx(ctx, x)
 }

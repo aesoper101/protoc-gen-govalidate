@@ -22,7 +22,7 @@ func init() {
     return validator.Validator().Struct(x)
   }
 
-  func (x *{{.GoIdent.GoName}}) StructCtx(ctx context.Context) error {
+  func (x *{{.GoIdent.GoName}}) ValidateCtx(ctx context.Context) error {
     return validator.Validator().StructCtx(ctx, x)
   }
 {{ end }}

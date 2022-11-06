@@ -11,7 +11,7 @@ go install github.com/aesoper101/protoc-gen-govalidate/cmd/protoc-gen-govalidate
 ## Usage
 
 ```shell
-protoc --proto_path=path/to/your/proto --go_out=paths=source_relative:. --govalidate_out=paths=source_relative:. *.proto
+protoc -I . -I path/to/validate/  --go_out=paths=source_relative:. --govalidate_out=paths=source_relative:. example/*.proto
 ```
 
 ## Dependencies
