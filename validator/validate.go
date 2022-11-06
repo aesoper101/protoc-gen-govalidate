@@ -11,7 +11,3 @@ var (
 func Validator() *validator.Validate {
 	return validate
 }
-
-func SetDefaultValidator(v *validator.Validate) {
-	validate = v
-}
